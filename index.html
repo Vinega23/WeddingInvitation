@@ -297,7 +297,7 @@
 
         .thank-you-h1 {
             line-height: 1.3;
-            font-size: 2rem;
+            font-size: 1.7rem;
             margin-top: 1rem;
         }
 
@@ -654,6 +654,12 @@
             .front, .back {
                 padding: 0.5rem;
             }
+            .front{
+                background-position: calc(10% - 500px);
+            }
+            .back{
+                background-position: calc(10% - 330px);
+            }
 
             /* ── Cover ── */
             .cover-title {
@@ -667,6 +673,7 @@
                 letter-spacing: 0.15em;
                 margin-top: 0.25rem;
                 margin-bottom: 0.5rem;
+                padding: 0 10px;
             }
 
             #open-book-btn {
@@ -739,10 +746,11 @@
             .location-name {
                 font-size: 0.55rem;
                 letter-spacing: 0.03em;
+                font-weight: bold;
             }
 
             .location-sub {
-                font-size: 8.5px;
+                font-size: 10px;
                 margin-top: 0.1rem;
             }
 
@@ -817,7 +825,7 @@
         <!-- Front: evening programme -->
         <div class="front">
             <div class="page-content-program-pages">
-                <h2 class="programme-title-second" data-i18n="programme">Programma</h2>
+                <h2 class="programme-title-second" data-i18n="programme">Del Matrimonio</h2>
 
                 <div class="schedule-wrap">                    
 
@@ -876,7 +884,7 @@
 
         <!-- Back: photo / thank you -->
         <div class="back">
-            <h1 class="thank-you-h1" data-i18n="thank_you">Grazie per aver partecipato!</h1>
+            <h1 class="thank-you-h1" data-i18n="thank_you">Grazie per la vostra presenza! Bau Bau!</h1>
         </div>
 
     </div>
@@ -923,7 +931,7 @@
         <!-- Back: morning / afternoon programme -->
         <div class="back">
             <div class="page-content-program-pages">
-                <h2 class="programme-title" data-i18n="wedding_day">Il giorno del matrimonio</h2>
+                <h2 class="programme-title" data-i18n="wedding_day">Il Programma</h2>
                 <div class="schedule-wrap">                    
 
                     <div class="schedule-row">
@@ -1138,19 +1146,19 @@ const translations = {
         wednesday: "Mercoledì",
         ceremony: "La Cerimonia",
         reception: "Ricevimento",
-        wedding_day: "Il giorno del matrimonio",
+        wedding_day: "Il Programma",
         departure: "Partenza da Colle",
         wedding_ceremony: "Cerimonia di matrimonio",
         refreshments: "Rinfresco",
         transfers: "Trasferimento a Pietraserena",
         welcome_guests: "Accoglienza ospiti",
-        programme: "Programma",
+        programme: "Del Matrimonio",
         antipasti: "Buffet di antipasti",
         dinner: "Cena",
         open_bar: "Open Bar",
         cake: "Taglio della torta e brindisi",
         return_transfer: "Ritorno in hotel",
-        thank_you: "Grazie per aver partecipato!",
+        thank_you: "Grazie per la vostra presenza! Bau Bau!",
         prev: "Prec",
         next: "Succ"
     },
@@ -1161,20 +1169,20 @@ const translations = {
         welcome_text: "Jsme moc nadšení, že můžeme tento výjimečný den sdílet s našimi nejbližšími. Otočte stránky pro všechny detaily o naší svatbě. Nemůžeme se dočkat, až to s vámi oslavíme!",
         wednesday: "Středa",
         ceremony: "Obrad",
-        reception: "Svatební hostina",
-        wedding_day: "Svatební den",
+        reception: "Svatební Hostina",
+        wedding_day: "Program",
         departure: "Odjezd z Colle",
         wedding_ceremony: "Svatební obřad",
         refreshments: "Lehké občerstvení",
         transfers: "Přesun do Pietraserena",
         welcome_guests: "Přivítání hostů",
-        programme: "Program",
+        programme: "Svatebniho Dne",
         antipasti: "Antipasti bufet",
         dinner: "Svatební hostina",
-        open_bar: "Otevřený bar",
+        open_bar: "Open bar",
         cake: "Krájení dortu a přípitek",
         return_transfer: "Odvoz do hotelu",
-        thank_you: "Dekujeme, ze prijdete!",
+        thank_you: "Dekujeme, ze budete soucástí naseho velkého dne! Haf Haf!",
         prev: "Zpět",
         next: "Další"
     }
