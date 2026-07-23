@@ -146,27 +146,33 @@
         }
 
         /* Page-specific backgrounds */
-        #page-3 .front {
+        #page-3 .front, #page-3 .back, #page-4 .front {
             background-image: url(./BG_vineyard_opacity.png);
-        }
-
-        #page-3 .back {
-            background-color: #585739;
-            background-image: url(./Obi_wedding.png);
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            color: #fffaf0;
         }
 
         #page-2 .back {
             background-image: url(./BG_vineyard_opacity.png);
         }
 
-        /* Cover front gets its solid green */
-        .cover .front {
+        #page-4 .back {
+            background-color: #585739;
+            background-image: url(./Obi_wedding.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            color: #fffaf0;
+            justify-content: flex-start;
+            padding-top: clamp(1rem, 10%, 3.5rem);
+        }
+
+        /* Cover front and Back Cover */
+        .cover .front, #page-5 .front {
             background-color: #585739;
             background-image: none;
+        }
+        
+        #page-5 .front {
+            border-radius: 2px 10px 10px 2px;
         }
 
         /* ─── Content wrapper ────────────────────────────────── */
@@ -202,7 +208,6 @@
                 text-align: center;
                 margin-bottom: 3rem;               
             }
-            
         }
 
         /* ─── Divider (thin separator line) ─────────────────── */
@@ -288,13 +293,54 @@
             .schedule-label p { font-size: 1rem; }
         }
 
-        /* ─── Page 3 back: Thank you ─────────────────────────── */
-        /* Align to top via the parent face rather than a huge fixed margin */
-        #page-3 .back {
-            justify-content: flex-start;
-            padding-top: clamp(1rem, 10%, 3.5rem);
+        /* ─── Menu layout ──────────────────────── */
+        .menu-wrap {
+            width: 100%;
+            max-width: 24rem;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .menu-title {
+            margin-bottom: 1.5rem;
+        }
+        
+        .menu-course {
+            margin-bottom: 1rem;
+        }
+        
+        .menu-course h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.7rem;
+            font-weight: 300;
+            color: #3b4b3e;
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            /* font-style: italic; */
+        }
+        
+        .menu-course p {
+            font-family: 'Playfair Display', sans-serif;
+            font-size: 1rem;
+            color: #1f2937;
+            line-height: 1.4;
+            font-weight: bold;
+        }
+        
+        .menu-footer {
+            font-family: 'Playfair Display', sans-serif;
+            font-size: 1rem;
+            font-style: italic;
+            margin-top: 2rem;
+            color: #6b7280;
+            line-height: 1.3;
         }
 
+        /* ─── Thank you h1 ───────────────────────────────────── */
         .thank-you-h1 {
             line-height: 1.6;
             font-size: 1.7rem;
@@ -431,9 +477,6 @@
             .programme-title { font-size: 2rem; margin-bottom: 3.5rem; left: 3.8rem }
             .programme-title-second { font-size: 2rem; margin-bottom: 3.5rem; left: -7rem}
         }
-            
-        
-
 
         /* ─── Cover (Page 1) ─────────────────────────────────── */
         .cover-title {
@@ -641,13 +684,12 @@
 
         /* ═══════════════════════════════════════════════════════
            XS — very small phones (< 480 px screen width)
-           Each page face ≈ 45vw, roughly 150–215 px wide.
            ═══════════════════════════════════════════════════════ */
         @media (max-width: 479px) {
 
             /* ── Book ── */
             .book-container {
-                height: 72vh;   /* a touch taller to give content room */
+                height: 72vh;
             }
 
             /* ── Faces ── */
@@ -757,17 +799,13 @@
             .leaf-divider span { width: 2rem; }
             .leaf-divider i    { font-size: 12px; }
 
-            /* ── Programme title (page 2 back) ── */
-            .programme-title {
+            /* ── Programme title ── */
+            .programme-title, .programme-title-second, .menu-title {
                 font-size: 1.5rem;
                 margin-bottom: 1rem;                
             }
-            .programme-title-second {
-                font-size: 1.5rem;
-                margin-bottom: 1rem;                              
-            }
 
-            /* ── Schedule rows — stack vertically on tiny pages ── */
+            /* ── Schedule rows ── */
             .schedule-row {
                 flex-direction: column;
                 align-items: center;
@@ -782,7 +820,7 @@
 
             .schedule-time p {
                 font-size: 0.65rem;
-                color: #6b7280; /* slightly muted when stacked above label */
+                color: #6b7280; 
             }
 
             .schedule-label {
@@ -797,6 +835,12 @@
                 margin: 0.45rem auto;
             }
 
+            /* ── Menu Adjustments XS ── */
+            .menu-course { margin-bottom: 0.75rem; }
+            .menu-course h3 { font-size: 0.7rem; margin-bottom: 0.15rem; }
+            .menu-course p { font-size: 0.6rem; }
+            .menu-footer { font-size: 0.55rem; margin-top: 0.75rem; }
+
             /* ── Nav buttons ── */
             .nav-btn {
                 font-size: 0.65rem;
@@ -809,9 +853,8 @@
             }
 
             .thank-you-h1 {            
-            font-size: 1.5rem;            
+                font-size: 1.5rem;            
             }
-
         }
     </style>
 </head>
@@ -822,10 +865,33 @@
     <button class="lang-btn" data-lang="cs">ČESKY</button>
 </div>
 
-<div class="book-container closed" id="book">
+<div class="book-container closed" id="book">   
 
-    <!-- ── Page 3: Reception programme & Back cover ────────── -->
-    <div class="page" id="page-3" style="z-index: 1;">
+    <!-- ── Page 4: Menu Dessert & Thank You ────────── -->
+    <div class="page" id="page-4" style="z-index: 2;">
+
+        <!-- Front: Menu Part 2 (Dessert) -->
+        <div class="front">
+            <div class="page-content-program-pages" style="justify-content: center;">
+                <div class="menu-wrap">
+                    <div class="menu-course">
+                        <h3 data-i18n="menu_course_5_title">Dessert e Caffè</h3>
+                        <p data-i18n="menu_course_5_desc">Torta Nuziale e Mini Pasticceria con vin santo<br>Caffè e Selezione di Grappe</p>
+                    </div>
+                    <p class="menu-footer" data-i18n="menu_footer">Ogni portata sarà accompagnata da una selezione di vini scelti appositamente per voi dalla Fattoria San Donato.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back: Thank You Photo -->
+        <div class="back">
+            <h1 class="thank-you-h1" data-i18n="thank_you">Grazie per la vostra presenza! Bau Bau!</h1>
+        </div>
+
+    </div>
+
+    <!-- ── Page 3: Reception programme & Menu Part 1 ────────── -->
+    <div class="page" id="page-3" style="z-index: 3;">
 
         <!-- Front: evening programme -->
         <div class="front">
@@ -887,15 +953,35 @@
             </div>
         </div>
 
-        <!-- Back: photo / thank you -->
+        <!-- Back: Menu Part 1 -->
         <div class="back">
-            <h1 class="thank-you-h1" data-i18n="thank_you">Grazie per la vostra presenza! Bau Bau!</h1>
+            <div class="page-content-program-pages" style="justify-content: center;">
+                <h2 class="programme-title menu-title" data-i18n="menu_title" style="margin-bottom: 2rem;">Menù di Nozze</h2>
+                <div class="menu-wrap">
+                    <div class="menu-course">
+                        <h3 data-i18n="menu_course_1_title">L'Aperitivo Benvenuto in Cortile</h3>
+                        <p data-i18n="menu_course_1_desc">Selezione di spumante, succhi e stuzzichini</p>
+                    </div>
+                    <div class="menu-course">
+                        <h3 data-i18n="menu_course_2_title">L'Antipasto Gran Buffet in Giardino</h3>
+                        <p data-i18n="menu_course_2_desc">Assortimento di specialità tradizionali</p>
+                    </div>
+                    <div class="menu-course">
+                        <h3 data-i18n="menu_course_3_title">Primi Piatti</h3>
+                        <p data-i18n="menu_course_3_desc">Pici all'Aglione<br>Ravioli di Patate con salsa al tartufo e scaglie di tartufo</p>
+                    </div>
+                    <div class="menu-course">
+                        <h3 data-i18n="menu_course_4_title">Secondi e Contorni</h3>
+                        <p data-i18n="menu_course_4_desc">Bistecca alla Fiorentina e Salsicce al Vin Santo<br>Patate e verdure di stagione</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
 
     <!-- ── Page 2: Date & venues / Day programme ──────────── -->
-    <div class="page" id="page-2" style="z-index: 2;">
+    <div class="page" id="page-2" style="z-index: 4;">
 
         <!-- Front: date and venue details -->
         <div class="front">
@@ -986,7 +1072,7 @@
     </div>
 
     <!-- ── Page 1: Cover ───────────────────────────────────── -->
-    <div class="page cover" id="page-1" style="z-index: 3;">
+    <div class="page cover" id="page-1" style="z-index: 5;">
 
         <!-- Front: cover artwork -->
         <div class="front">
@@ -1031,10 +1117,12 @@
 
         let isOpen      = false;
         let currentPage = 1;
-        const totalPages = 3;
+        // Total flips allowed (flipping page 1, 2, 3, 4)
+        const totalPages = 4; 
 
-        const zIndexRight = { 1: 3, 2: 2, 3: 1 };
-        const zIndexLeft  = { 1: 1, 2: 2, 3: 3 };
+        // Update z-indexes to account for the 5-page physical layout
+        const zIndexRight = { 1: 5, 2: 4, 3: 3, 4: 2, 5: 1 };
+        const zIndexLeft  = { 1: 1, 2: 2, 3: 3, 4: 4, 5: 5 };
 
         function openBook() {
             isOpen = true;
@@ -1109,6 +1197,7 @@
             if (e.key === 'ArrowLeft')  prevPage();
         });
     });
+
 const translations = {
     en: {
         cover_subtitle: "Invite you to celebrate their wedding",
@@ -1132,7 +1221,19 @@ const translations = {
         return_transfer: "Return transfer to the hotel",
         thank_you: "Thank you for coming!",
         prev: "Prev",
-        next: "Next"
+        next: "Next",
+        menu_title: "Wedding Menu",
+        menu_course_1_title: "L'Aperitivo Benvenuto in Cortile",
+        menu_course_1_desc: "Selection of sparkling wines, juices, and snacks",
+        menu_course_2_title: "L'Antipasto Gran Buffet in Giardino",
+        menu_course_2_desc: "Assortment of traditional specialties",
+        menu_course_3_title: "Primi Piatti",
+        menu_course_3_desc: "Pici all'Aglione<br>Potato Ravioli with truffle sauce and truffle flakes",
+        menu_course_4_title: "Secondi & Contorni",
+        menu_course_4_desc: "Bistecca alla Fiorentina & Salsicce al Vin Santo<br>Potatoes and seasonal vegetables",
+        menu_course_5_title: "Dessert & Caffè",
+        menu_course_5_desc: "Wedding Cake & Mini Pastries<br>Coffee & Grappa Selection",
+        menu_footer: "Each course will be accompanied by a selection of wines specially selected for you by Fattoria San Donato."
     },
     it: {
         cover_subtitle: "Vi invitano a celebrare il loro matrimonio",
@@ -1155,7 +1256,19 @@ const translations = {
         return_transfer: "Ritorno in hotel",
         thank_you: "Grazie per la vostra presenza! Bau Bau!",
         prev: "Prec",
-        next: "Succ"
+        next: "Succ",
+        menu_title: "Menù di Nozze",
+        menu_course_1_title: "L'Aperitivo Benvenuto in Cortile",
+        menu_course_1_desc: "Selezione di spumante, succhi e stuzzichini",
+        menu_course_2_title: "L'Antipasto Gran Buffet in Giardino",
+        menu_course_2_desc: "Assortimento di specialità tradizionali",
+        menu_course_3_title: "Primi Piatti",
+        menu_course_3_desc: "Pici all'Aglione<br>Ravioli di Patate con salsa al tartufo e scaglie di tartufo",
+        menu_course_4_title: "Secondi e Contorni",
+        menu_course_4_desc: "Bistecca alla Fiorentina e Salsicce al Vin Santo<br>Patate e verdure di stagione",
+        menu_course_5_title: "Dessert e Caffè",
+        menu_course_5_desc: "Torta Nuziale e Mini Pasticceria con vin santo<br>Caffè e Selezione di Grappe",
+        menu_footer: "Ogni portata sarà accompagnata da una selezione di vini scelti appositamente per voi dalla Fattoria San Donato."
     },
     cs: {
         cover_subtitle: "Vás zvou na oslavu svého svatebního dne",
@@ -1178,12 +1291,23 @@ const translations = {
         return_transfer: "Odvoz do hotelu",
         thank_you: "Dekujeme, ze budete soucástí naseho velkého dne! Haf Haf!",
         prev: "Zpět",
-        next: "Další"
+        next: "Další",
+        menu_title: "Svatební Menu",
+        menu_course_1_title: "Uvítací aperitiv na nádvoří",
+        menu_course_1_desc: "Výběr šumivých vín, džusů a drobných zákusků",
+        menu_course_2_title: "Předkrm: Velký bufet na zahradě",
+        menu_course_2_desc: "Výběr tradičních specialit",
+        menu_course_3_title: "Primi Piatti (První chody)",
+        menu_course_3_desc: "Pici all'Aglione<br>Ravioli di Patate s lanýžovou omáčkou a plátky lanýžů (přímo ze zahrady)",
+        menu_course_4_title: "Secondi e Contorni (Hlavní chody)",
+        menu_course_4_desc: "Bistecca alla Fiorentina a Salsicce al Vin Santo<br>Brambory a sezónní zelenina",
+        menu_course_5_title: "Dessert e Caffè",
+        menu_course_5_desc: "Svatební dort a mini zákusky se šumivým vínem<br>Káva a výběr grappy",
+        menu_footer: "Každý chod bude doprovázen výběrem vín speciálně vybraných přímo pro vás z vinařství Fattoria San Donato."
     }
 };
-// 2. Function to update the DOM
+
 function setLanguage(lang) {
-    // Find all elements with a data-i18n attribute
     const elements = document.querySelectorAll('[data-i18n]');
     
     elements.forEach(el => {
@@ -1193,7 +1317,6 @@ function setLanguage(lang) {
         }
     });
 
-    // Update active state on buttons
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
         if (btn.getAttribute('data-lang') === lang) {
@@ -1202,7 +1325,6 @@ function setLanguage(lang) {
     });
 }
 
-// 3. Add click listeners to language buttons
 document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
         const selectedLang = e.target.getAttribute('data-lang');
@@ -1210,7 +1332,6 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
     });
 });  
         
-
 </script>
 
 </body>
